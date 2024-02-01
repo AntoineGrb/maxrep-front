@@ -2,6 +2,8 @@
 
 MaxRep est une application web dynamique conçue pour les passionnés de fitness et de sport. Elle offre un moyen intuitif de suivre et d'analyser les performances sportives, en se concentrant sur la simplicité et l'efficacité.
 
+Voici le lien de l'application déployée sur Vercel : [https://projet-01-maxrep-front.vercel.app/](https://projet-01-maxrep-front.vercel.app/)
+
 ## Caractéristiques
 
 - **Suivi des Sessions**: Permet aux utilisateurs d'enregistrer et de suivre les détails de leurs sessions de sport, y compris les scores, les descriptions et les dates.
