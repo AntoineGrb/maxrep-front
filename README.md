@@ -35,3 +35,10 @@ Le repo du backend est disponible ici : [https://github.com/O-clock-Empanadas/pr
 - Créer une nouvelle base de données pour l'application.
 - Configurer les variables d'environnement pour la connexion à la base de données.
 4. **Lancer le serveur backend**: npm start
+
+## Collaborateurs
+Cette application a été conçue dans le cadre d'un projet de fin d'étude d'une durée d'un mois (1 semaine de cadrage et 3 semaines de développement).
+L'équipe du projet était la suivante : 
+- Charles Robart (Product Owner)
+- Thomas Rugolino
+- Antoine Grubert
