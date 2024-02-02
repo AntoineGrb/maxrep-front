@@ -1,0 +1,44 @@
+@import '../../styles/variables.scss';
+@import '../../styles/breakpoints.scss';
+
+.performance-form {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+
+    label {
+        color: $color-white;
+    }
+
+    input {
+        width: clamp(100px, 20%, 125px);
+        padding: 5px 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: $color-grey;
+        text-align: left;
+        &::placeholder {
+            text-align: right;
+        }
+    }
+
+    .input-time {
+        width: clamp(40px, 10%, 60px);
+        padding: 5px 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: $color-grey;
+        text-align: left;
+        &::placeholder {
+            text-align: right;
+        }
+    }
+
+    .button {
+        width: 100px;
+        padding: 5px 5px;
+        font-size: 0.9rem;
+    }
+}

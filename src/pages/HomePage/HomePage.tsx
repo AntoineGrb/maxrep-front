@@ -46,10 +46,10 @@ const HomePage = () => {
                         <i className="icon fa-solid fa-chevron-down"></i>
                     </div>
                 </section>
-                <section  className='home-presentation'>
+                <section ref={secondPage} className='home-presentation'>
                     <div  className="content">
                         <div className='content__presentation'>
-                            <h1 ref={secondPage} className='content__title'> MAXREP </h1>
+                            <h1  className='content__title'> MAXREP </h1>
                             <p className='content__text'> Maxrep est l'outil idéal pour les passionnés de sport souhaitant suivre et améliorer leurs performances. <br/> <br />
                             Cette application intuitive vous permet de suivre vos progrès dans diverses disciplines sportives, vous aidant à atteindre vos objectifs avec précision et motivation. </p>
                         </div>

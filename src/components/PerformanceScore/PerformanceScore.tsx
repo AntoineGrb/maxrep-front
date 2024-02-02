@@ -180,7 +180,7 @@ const PerformanceScore = ({selectedSport, sportIndex, getUserPerformances}: Perf
 
     return (
         <>
-            <form action="" onSubmit={(e) => addScoreOrUpdate(e, sportIndex)}>
+            <form className='performance-form' action="" onSubmit={(e) => addScoreOrUpdate(e, sportIndex)}>
                 <label htmlFor="">Date</label>
                 <input 
                 type="date" 

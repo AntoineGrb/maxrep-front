@@ -3,8 +3,8 @@
 
 .react-calendar{
   @include breakpoint-small-screen {
-    width: 75% !important;
-    max-width: 600px !important;
+    width: 100% !important;
+    max-width: 500px !important;
     height: auto !important;
   }
   

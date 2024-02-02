@@ -28,7 +28,7 @@ const PerformanceTable = ({displaySelectedSport}: PerformanceTableProps) => {
         <>
         {displaySelectedSport.sessions.length > 0 ? (
             <>
-                <h3 className='table-title'> 5 dernières sessions </h3>
+                <h3 className='table-title'> 5 dernières sessions de {displaySelectedSport.name} </h3>
                 <div className='table'>
                     <table className='performance-board'>
                         <thead>

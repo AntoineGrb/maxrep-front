@@ -40,69 +40,24 @@
 
             .sport {
                 background-color: $color-grey;
+                &.clicked {
+                    background-color: $color-red;
+    
+                    h3 {
+                        color: $color-white;
+                    }
+                }
 
                 &__header{
                     display: flex;
-                    justify-content: center;
+                    justify-content: flex-start;
                 }
 
                 h3 {
                     font-size: 1.4rem;
                 }
 
-                form {
-                    width: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 5px;
-
-                    .button {
-                        width: 100px;
-                        padding: 5px 5px;
-                        font-size: 0.9rem;
-                    }
-                }
-
-                label {
-                    color: $color-white;
-                }
-
-                input {
-                    width: 100px;
-                padding: 5px 5px;
-                border: none;
-                border-radius: 5px;
-                background-color: $color-grey;
-                text-align: left;
-                &::placeholder {
-                    text-align: right;
-                }
-                }
-
-                .input-time {
-                    width: 40px;
-                    padding: 5px 5px;
-                    border: none;
-                    border-radius: 5px;
-                    background-color: $color-grey;
-                    text-align: left;
-                    &::placeholder {
-                        text-align: right;
-                    }
-                }
-
             }
-
-            .sport.clicked {
-                background-color: $color-blue;
-
-                h3 {
-                    color: $color-white;
-                }
-            }
-
-
         }
 
         .sports-chart {
