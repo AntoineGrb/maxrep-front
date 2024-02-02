@@ -29,19 +29,22 @@
 
             &__title {
                 margin-top: 20px;
-                margin-bottom: 50px;
             }
 
             &__errors {
-                margin-bottom: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-left: 10px;
 
                 .error-message {
-                    color:$color-red
+                    color:$color-red;
+                    text-align: center;
                 }
             }
     
             &__inputs {
-                margin-bottom: 40px;
+                margin-bottom: 20px;
                 width: 100%;
                 display: flex;
                 justify-content: center;

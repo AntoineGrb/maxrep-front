@@ -22,21 +22,45 @@
             gap: 10px;
     
             label {
-                width: clamp(150px, 30%, 200px);
+                width: clamp(150px, 30%, 230px);
+                font-size: 0.9rem;
             }
     
-            input, select {
+            input, select, textarea {
                 width: clamp(120px, 70%, 500px);
                 background-color: $color-grey;
                 border: 1px solid grey;
                 padding: 5px 5px;
             }
 
-            .checkbox {
-                height: 20px;
+            .inputs-time {
+                display: flex;
+                gap: 10px;
+                width: 70%;
+
+                input { //Handle inputs when unit is time
+                    width: clamp(35px, 35%, 250px);
+                }
             }
 
+            .checkbox {
+                height: 20px;
+                // margin-left: auto;
+                display: inline-block;
+            }
 
+        }
+    }
+
+    &__errors {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 10px;
+
+        .error-message {
+            color:$color-red;
+            text-align: center;
         }
     }
 

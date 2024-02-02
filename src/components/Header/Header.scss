@@ -4,7 +4,6 @@
 .header {
     height: 10vh;
     background-color: $color-red;
-    border-bottom: 1px solid $color-white;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,25 +12,36 @@
     &__title {
         display: flex;
         align-items: center;
+        gap: 20px;
         height: 100%;
 
         h1 {
             color:$color-white;
         }
 
-        img {
-            height: 70%;
-            margin-left: 15px;
+        a { //It's the React Router Link
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            img {
+                height: 75%;
+                margin-left: 15px;
+            }
         }
     }
 
-    &__logout {
-        margin-right: 15px;
+    &__menu {
+        display: flex;
+        gap: 20px;
+        align-items: center;
 
-        i {
-            font-size: 1.3rem;
-            color: $color-white;
+        .icon {
             cursor: pointer;
+            transition: all 100ms ease-out;
+            &:hover {
+               color:$color-white-hover;
+            }
         }
     }
 }

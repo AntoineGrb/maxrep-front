@@ -1,26 +1,31 @@
 import './LoginPage.scss'
 import axios from 'axios';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState , useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 import Header from '../../components/Header/Header';
-import { useAuth } from '../../context/AuthContext'
 
 const LoginPage = () => {
 
-    //STATES
+    const navigate = useNavigate();
+    const { isAuthenticated, login, token, userId } = useAuth()!;
+
     const [userInfos, setUserInfos] = useState({
         email:'',
         password:'',
     });
-
-    const navigate = useNavigate(); //Hook to navigate to another page
-    const { login } = useAuth()!; //Hook to get login function from AuthContext, exclamation mark to tell TS that it's not null
-    
     const [errorMessage, setErrorMessage] = useState<string>('');
 
-    //UTILS
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    //Handle redirection if user is authenticated
+    useEffect(() => {
+        if (isAuthenticated()) {
+            navigate('/profile');
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[isAuthenticated, navigate, token, userId])
+    
 
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         e.preventDefault();
         
         //Edit userInfos with new target value for changed input
@@ -31,26 +36,17 @@ const LoginPage = () => {
     }
 
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-
         e.preventDefault();
         setErrorMessage(''); //Init empty error messages
         
-        //Push userInfos to backend
         try {
-            const response = await axios.post('https://maxrep-back.onrender.com/api/login' , userInfos);
-            console.log(response);
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/login` , userInfos);
 
-            if (response.status === 200) {
-                const token = response.data;
-                login(token); //Login user with token
-                navigate(`/profile`);
+            const token = response.data; //Get token from response
+            login(token); //Login user with token
+            navigate(`/profile`); //Redirect to profile page
 
-                return response.data;
-
-            } else {
-                //Return error status & message
-                setErrorMessage(response.data.error);
-            }
+            return response.data;
 
         } catch (error) {
             if (axios.isAxiosError(error)) { //== Case if axios error
@@ -58,13 +54,12 @@ const LoginPage = () => {
                     setErrorMessage(error.response.data.error);
 
                 } else { //== Case if no response from server
-                    setErrorMessage('Une erreur de réseau est survenue.');
+                    setErrorMessage('Erreur interne du serveur.');
                 }
 
             } else { //== Case if not axios error
                 setErrorMessage('Une erreur inattendue est survenue.');
             }
-            console.log(error);
         }
     }
 
@@ -106,6 +101,11 @@ const LoginPage = () => {
                         </div>
                         <div className="form__buttons">
                             <button type='submit'> CONNEXION </button>
+                        </div>
+                        <div className="form__message">
+                            <Link to='/register'>
+                                <p> Pas de compte ? Inscrivez-vous ici ! </p>
+                            </Link>
                         </div>
                     </form>
                 </section>

@@ -16,13 +16,13 @@ $breakpoint-large-screen: 1200px;
 }
 
 @mixin breakpoint-small-screen {
-    @media (min-width: $breakpoint-phone) {
+    @media (min-width: $breakpoint-small-screen) {
       @content;
     }
   }
   
 @mixin breakpoint-large-screen {
-    @media (min-width: $breakpoint-tablet) {
+    @media (min-width: $breakpoint-large-screen) {
         @content;
     }
 }
@@ -46,6 +46,4 @@ $breakpoint-large-screen: 1200px;
 @include breakpoint-large-screen() {
     //My styles
 }
-
-//Example : 
 

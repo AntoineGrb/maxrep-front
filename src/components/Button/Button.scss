@@ -1,22 +1,32 @@
 @import '../../styles/variables.scss';
 
 .button {
-    width: clamp(100px, 30%, 200px);
-    padding: 12px 10px;
+    width: clamp(120px, 30%, 200px);
     border: none;
     border-radius: 5px;
     color: $color-white;
     cursor: pointer;
+    text-align: center;
+    transition: all 100ms ease-out;
 }
 
 .button.black {
     background-color: $color-black;
+    &:hover {
+        background-color: $color-black-hover;
+    }
 }
 
 .button.white {
     background-color: $color-white;
+    &:hover {
+        background-color: $color-white-hover;
+    }
 }
 
 .button.red {
     background-color: $color-red;
+    &:hover {
+        background-color: $color-red-hover;
+    }
 }

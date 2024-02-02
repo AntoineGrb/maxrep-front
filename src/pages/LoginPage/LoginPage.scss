@@ -29,19 +29,22 @@
 
             &__title {
                 margin-top: 20px;
-                margin-bottom: 50px;
             }
 
             &__errors {
-                margin-bottom: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-left: 10px;
 
                 .error-message {
-                    color:$color-red
+                    color:$color-red;
+                    text-align: center;
                 }
             }
     
             &__inputs {
-                margin-bottom: 40px;
+                margin-bottom: 20px;
                 width: 100%;
                 text-align: center;
                 display: flex;
@@ -84,7 +87,6 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin-bottom: 40px;
 
                 button {
                     width: 80%;
@@ -96,7 +98,15 @@
                 }
             }
 
-            
+            &__message {
+                margin-bottom: 40px;
+
+                p {
+                    font-size: 0.9rem;
+                    text-align: center;
+                    text-decoration: underline;
+                }
+            }
         }
     }
 }
