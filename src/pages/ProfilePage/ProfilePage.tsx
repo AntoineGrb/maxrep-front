@@ -234,12 +234,12 @@ const ProfilePage = () => {
                                                         <td> {sport.name} </td>
                                                         <td>
                                                         {sport.unit === 'kg' ? (
-                                                        // Affichage pour les sports en kg
+                                                        // Display for sports with kg unit
                                                             getMostRecentSessionScore(userInfos.id, sport.id) ?
                                                             (`${getMostRecentSessionScore(userInfos.id, sport.id)} ${sport.unit}`
                                                             ) : ("Aucune donnée")
                                                         ) : (
-                                                        // Affichage pour les sports de temps
+                                                        // Display  for sports with time unit
                                                             getMostRecentSessionScore(userInfos.id, sport.id) ?
                                                             (convertSecondsToHMS(getMostRecentSessionScore(userInfos.id, sport.id) ?? 0))
                                                             : ("Aucune donnée")

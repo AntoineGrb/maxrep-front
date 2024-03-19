@@ -50,12 +50,12 @@ const PerformancePage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[isAuthenticated, navigate, token, userId]);
 
-    const [userPerformances, setUserPerformances] = useState<SportProps[]>([]);
+    const [userPerformances, setUserPerformances] = useState<SportProps[]>([]); //To store user performances
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<ErrorProps | null>(null);
     const [selectedSport, setSelectedSport] = useState<SportProps>({id:0, name:'', unit:'', sessions:[]}); //Sport selected by user
-    const [displaySelectedSport, setDisplaySelectedSport] = useState<SportProps>({id:0, name:'', unit:'', sessions:[]}); //Sport selected by user with only sessions where score is not 0
-    const [selectedSportIndex, setSelectedSportIndex] = useState<number>(0); //Index of sport selected by user, to allow to display the right sport in the list
+    const [displaySelectedSport, setDisplaySelectedSport] = useState<SportProps>({id:0, name:'', unit:'', sessions:[]}); //Sport selected by user with only sessions where score is not 0 (for desktop version)
+    const [selectedSportIndex, setSelectedSportIndex] = useState<number>(0); //Index of sport selected by user, to allow to display the right sport in the list (for desktop version)
 
     //Media query to get if device is mobile or desktop
     const isMobile = useMediaQuery({
@@ -80,6 +80,7 @@ const PerformancePage = () => {
             });
             
             setUserPerformances(response.data.sports);
+            
             if (response.data.sports.length > 0) {
 
                 //Sort sessions by ASC date
@@ -122,7 +123,7 @@ const PerformancePage = () => {
         }
     }
 
-    //Handle sport selected by user
+    //Handle sport selected by user (for desktop version)
     const handleSportSelected = (sport:SportProps, index: number) => { 
 
         //Sort sessions by ASC date

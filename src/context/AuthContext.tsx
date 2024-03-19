@@ -22,17 +22,18 @@ export const useAuth = () => useContext(AuthContext); //Custom hook to get the c
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({children}) => { 
 
-    //Get token from localStorage and decode it to get userId
+    //Get token from localStorage (if it exist) and decode it to get userId immediately after the app starts
     const storedToken = localStorage.getItem('userToken');
     let initialUserId = null;
 
     if (storedToken) {
         const decodedToken = jwtDecode<DecodedTokenProps>(storedToken);
-        initialUserId = decodedToken.id;
+        initialUserId = decodedToken.id; //Getting userId from token
     }
 
-    const [token, setToken] = useState<string | null>(localStorage.getItem('userToken')); //Init token with localStorage value
-    const [userId, setUserId] = useState<number | null>(initialUserId); //Init userId with localStorage value if token exists
+    //Init state with token and userId to handle dynamic changes
+    const [token, setToken] = useState<string | null>(localStorage.getItem('userToken')); //Init token with localStorage value (if it exists)
+    const [userId, setUserId] = useState<number | null>(initialUserId); //Init userId (if storedToken exists or null otherwise)
 
     //Login function
     const login = (newToken: string) => {

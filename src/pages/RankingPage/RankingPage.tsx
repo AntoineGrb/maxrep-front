@@ -78,13 +78,10 @@ const RankingPage = () => {
         weightMin: '',
         weightMax: ''
     })
-    const [ranking, setRanking] = useState<RankingProps[]>([]);
+    const [ranking, setRanking] = useState<RankingProps[]>([]); //To display the ranking
 
-    useEffect(() => {
-        console.log(ranking)
-    }, [ranking]);
-
-    const getBestScores =  useCallback (async (queryParams: QueryParamsProps) => {
+    //The useCallback hook allows to memorize the function and to avoid to recreate it at each render
+    const getBestScores = useCallback (async (queryParams: QueryParamsProps) => {
 
         try{
             setIsLoading(true);
@@ -157,7 +154,7 @@ const RankingPage = () => {
             setIsLoading(true);
             setError(null);
 
-            // Récupérer les données de la table ranking en fonction du sport de l'utilisateur
+            // Get user's data
             const response = await axios.get(`${import.meta.env.VITE_API_URL}/profile/${userId}` , {
                 headers: {
                     'Authorization': `Bearer ${token}` //Send token to backend to verify user
@@ -202,6 +199,7 @@ const RankingPage = () => {
         }
     };
 
+    //Handle change of the select fields
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         e.preventDefault();
         const name = e.target.name;
@@ -213,6 +211,7 @@ const RankingPage = () => {
         }));
     };
 
+    //Handle the form submit
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 

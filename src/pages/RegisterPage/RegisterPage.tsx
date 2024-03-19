@@ -11,13 +11,13 @@ const RegisterPage = () => {
     const navigate = useNavigate();
     const { isAuthenticated,  token, userId } = useAuth()!;
 
-    const [userInfos, setUserInfos] = useState({
+    const [userInfos, setUserInfos] = useState({ //Init empty userInfos state
         email:'',
         password:'',
         passwordConfirm: '',
-        lastname: '', 
-        firstname:'',
-        birthDate: '',
+        lastname: 'Doe', 
+        firstname:'John',
+        birthDate: '01/01/2000',
         gender:'Homme'
     });
     const [errorMessage, setErrorMessage] = useState<string>('');
@@ -33,7 +33,8 @@ const RegisterPage = () => {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
 
         e.preventDefault();
-        const sanitizedValue = DOMPurify.sanitize(e.target.value);
+        const sanitizedValue = DOMPurify.sanitize(e.target.value); //Sanitize input value for security
+        
         //Edit userInfos with new target value for changed input
         setUserInfos({
             ...userInfos,
@@ -42,7 +43,6 @@ const RegisterPage = () => {
     }
 
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-
         e.preventDefault();
         setErrorMessage(''); //Init empty error messages
 
@@ -53,9 +53,8 @@ const RegisterPage = () => {
         
         try {
             const response = await axios.post(`${import.meta.env.VITE_API_URL}/register` , userInfos);
-
-            //Redirect to login page after successful registration
-            navigate(`/login`);
+            
+            navigate(`/login`);  //Redirect to login page after successful registration
             return response.data;
             
         } catch (error) {
@@ -119,7 +118,7 @@ const RegisterPage = () => {
                                     required
                                 />
                             </div>
-                            <div className='input'> 
+                            {/* <div className='input'> 
                                 <i className="icon fa-solid fa-user"></i>
                                 <input 
                                     type="text" 
@@ -159,7 +158,7 @@ const RegisterPage = () => {
                                     <option value="Femme"> Femme </option>
                                     <option value="Non binaire"> Non binaire </option>
                                 </select>
-                            </div>
+                            </div> */}
                         </div>
                         <div className="form__buttons">
                             <button type='submit'> INSCRIPTION </button>

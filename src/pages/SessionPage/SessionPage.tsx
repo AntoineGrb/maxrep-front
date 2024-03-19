@@ -48,10 +48,10 @@ const SessionPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[isAuthenticated, navigate, token, userId]);
 
-    const [userSessions, setUserSessions] = useState<SessionProps[]>([]); 
-    const [userSports, setUserSports] = useState([]);
-    const [selectedDate, setSelectedDate] = useState(new Date()); 
-    const [selectedSession, setSelectedSession] = useState<SessionProps | null>(null);
+    const [userSessions, setUserSessions] = useState<SessionProps[]>([]); //To store user sessions
+    const [userSports, setUserSports] = useState([]); //To store user sports for modal forms
+    const [selectedDate, setSelectedDate] = useState(new Date());  //To store selected date for calendar
+    const [selectedSession, setSelectedSession] = useState<SessionProps | null>(null); //To store selected session for edition
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<ErrorProps | null>(null);
     //Handle modals

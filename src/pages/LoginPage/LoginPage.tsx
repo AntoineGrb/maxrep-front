@@ -10,7 +10,7 @@ const LoginPage = () => {
     const navigate = useNavigate();
     const { isAuthenticated, login, token, userId } = useAuth()!;
 
-    const [userInfos, setUserInfos] = useState({
+    const [userInfos, setUserInfos] = useState({ //Init empty userInfos state
         email:'',
         password:'',
     });
@@ -24,7 +24,7 @@ const LoginPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[isAuthenticated, navigate, token, userId])
     
-
+    
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         e.preventDefault();
         
